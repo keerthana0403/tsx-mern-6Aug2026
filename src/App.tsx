@@ -4,10 +4,12 @@ import CharacterGrid from "./components/CharacterGrid";
 import LoadingState from "./components/LoadingState";
 import ErrorState from "./components/ErrorState";
 import type { Person } from "./types";
+import Pagination from "./components/Pagination";
 
 function App() {
   const [page, setPage] = useState(1);
-  const { data, isLoading, isError, error, refetch } = usePeople(page);
+  const { data, isLoading, isError, error, refetch, isFetching } =
+    usePeople(page);
   const [selectedPerson, setSelectedPerson] = useState<Person | null>(null);
 
   return (
@@ -22,10 +24,17 @@ function App() {
         />
       )}
       {data && (
-        <CharacterGrid people={data.people} onSelect={setSelectedPerson} />
+        <>
+          <CharacterGrid people={data.people} onSelect={setSelectedPerson} />
+          <Pagination
+            page={page}
+            totalPages={data.totalPages}
+            onPageChange={setPage}
+            isFetching={isFetching}
+          />
+        </>
       )}
 
-      {/* Pagination goes here next step */}
       {/* Modal goes here in the step after */}
     </div>
   );
