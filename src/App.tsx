@@ -5,6 +5,7 @@ import LoadingState from "./components/LoadingState";
 import ErrorState from "./components/ErrorState";
 import type { Person } from "./types";
 import Pagination from "./components/Pagination";
+import CharacterModal from "./components/CharacterModal";
 
 function App() {
   const [page, setPage] = useState(1);
@@ -35,7 +36,12 @@ function App() {
         </>
       )}
 
-      {/* Modal goes here in the step after */}
+      {selectedPerson && (
+        <CharacterModal
+          person={selectedPerson}
+          onClose={() => setSelectedPerson(null)}
+        />
+      )}
     </div>
   );
 }
