@@ -20,8 +20,7 @@ function hashString(str: string): number {
   return Math.abs(hash);
 }
 
-export function getSpeciesColorClasses(speciesUrls: string[] | undefined) {
-  const key = speciesUrls && speciesUrls.length > 0 ? speciesUrls[0] : "human";
-  const index = hashString(key) % PALETTE.length;
+export function getSpeciesColorClasses(speciesName: string) {
+  const index = hashString(speciesName) % PALETTE.length;
   return PALETTE[index];
 }

@@ -60,3 +60,53 @@ export interface PlanetDetailResponse {
   message: string;
   result: Planet;
 }
+
+export interface ResourceSummary {
+  uid: string;
+  name: string;
+  url: string;
+}
+
+export interface ExpandedPeopleListResponse {
+  message: string;
+  total_records: number;
+  total_pages: number;
+  previous: string | null;
+  next: string | null;
+  results: Person[];
+}
+
+export interface ResourceListResponse {
+  message: string;
+  total_records: number;
+  total_pages: number;
+  previous: string | null;
+  next: string | null;
+  results: ResourceSummary[];
+}
+
+export interface CharacterFilters {
+  homeworld: string;
+  film: string;
+  species: string;
+}
+
+export interface SpeciesExpandedProperties {
+  name: string;
+  people: string[];
+  [key: string]: unknown;
+}
+
+export interface SpeciesExpanded {
+  uid: string;
+  properties: SpeciesExpandedProperties;
+}
+
+export interface ExpandedSpeciesListResponse {
+  message: string;
+  total_records: number;
+  total_pages: number;
+  previous: string | null;
+  next: string | null;
+  results: SpeciesExpanded[];
+}

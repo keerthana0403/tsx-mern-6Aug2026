@@ -3,17 +3,19 @@ import { getSpeciesColorClasses } from "../utils/speciesColor";
 
 interface Props {
   person: Person;
+  speciesName: string;
   onClick: () => void;
 }
 
-const CharacterCard = ({ person, onClick }: Props) => {
-  const { name, species } = person.properties;
-  const colors = getSpeciesColorClasses(species);
+const CharacterCard = ({ person, speciesName, onClick }: Props) => {
+  const { name } = person.properties;
+  const colors = getSpeciesColorClasses(speciesName);
   const imageUrl = `https://picsum.photos/seed/${person.uid}/300/200`;
 
   return (
     <button
       onClick={onClick}
+      title={speciesName}
       className={`
         ${colors.bg} ${colors.border}
         border-2 rounded-xl overflow-hidden text-left
@@ -30,6 +32,9 @@ const CharacterCard = ({ person, onClick }: Props) => {
       />
       <div className="p-3">
         <h3 className={`font-semibold ${colors.text}`}>{name}</h3>
+        <span className={`text-xs ${colors.text} opacity-70`}>
+          {speciesName}
+        </span>
       </div>
     </button>
   );
