@@ -44,11 +44,9 @@ A React + TypeScript app that browses Star Wars characters via the [SWAPI](https
 | -------------------------------------------- | ---------------------------------------------- |
 | ![Character grid](public/character-grid.png) | ![Character modal](public/character-modal.png) |
 
-| Search & Filters                                | Error State                            |
-| ----------------------------------------------- | -------------------------------------- |
-| ![Search and filters](public/search-filter.png) | ![Error state](public/error-state.png) |
-
-_(Replace the images above — create a `screenshots/` folder in the repo root and drop your PNGs in with these exact filenames, or update the paths.)_
+| Search & Filters                                | Error State                             |
+| ----------------------------------------------- | --------------------------------------- |
+| ![Search and filters](public/search_filter.png) | ![Error state](public/error-screen.png) |
 
 ---
 
